@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ANG-001 | Lesson 1 | Assignment 2 | Pablo Cordero</title>
+  <link type="text/css" href="stylesheets/main.css" media="all" rel="stylesheet">
+</head>
+
+<body>
+  <section id="calculator">
+    <div class="container">
+      <header><h1>Adder / Subtractor</h1></header>
+      <div>
+        <div class="operand">
+          <label>X = </label><input type="text" id="x" placeholder="Enter an integer" />
+        </div>
+        <div class="operand">
+          <label>Y = </label><input type="text" id="y" placeholder="Enter an integer"/>
+        </div>
+        <div id="actions">
+          <button type="button" id="plus" value="+" />+</button>
+          <button type="button" id="minus" value="-">-</button>
+        <div>
+        <div id="result">
+          <div class="success">X <span id="operator-text"></span> Y is <span id="result-text"></span></div>
+          <div class="error">Please verify that both inputs are integers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="javascripts/main.js"></script>
+</body>
+
+</html>
