@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="madLibs">
+<head>
+  <meta charset="UTF-8">
+  <title>ANG-001 | Lesson 2 | Assignment 7 | Pablo Cordero</title>
+  <link type="text/css" href="assets/stylesheets/main.css" media="all" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+  <script src="assets/javascripts/controllers/madLibs.js"></script>
+</head>
+
+<body ng-controller="keywordsCtrl">
+  <div id="wrapper">
+    <header>
+      <div class="logo">
+        <img src="/ang-001/lesson 2/assignment 7/assets/images/mad-lib-happy-face.png" />
+      </div>
+      <div class="heading">
+        <img src="/ang-001/lesson 2/assignment 7/assets/images/ng-mad-libs-logo.png" />
+        <h1>Automate This!</h1>
+      </div>
+    </header>
+
+    <section id="fields" class="container" ng-hide="ready">
+      <p class="error-msg" ng-if="madLibsForm.$submitted && !madLibsForm.$valid">
+        There are errors on your Mad Lib, make sure you fill in all the fields
+        <span ng-show="madLibsForm.hugeNumber.$error.number"> and that the field for 
+        'huge number' is in fact a number</span>. The missing fieldsfields with errors are highlighted below.
+      </p>
+      <h1>Provide the following words:</h1>
+      <div class="keywords">
+        <form name="madLibsForm" novalidate ng-submit="submit()">
+          <input type="radio" name="gender" ng-model="gender" value="female" ng-change="updateCopy(gender)" /> Female
+          <input type="radio" name="gender" ng-model="gender" value="male" ng-change="updateCopy(gender)" /> Male<br />
+          <input type="text" placeholder="name" name="name" ng-model="keywords.name" required />
+          <input type="text" placeholder="dirty task" name="dirtytask" ng-model="keywords.dirtyTask" required />
+          <input type="text" placeholder="obnoxiuos celebrity" name="obnoxiousCelebrity" ng-model="keywords.obnoxiousCelebrity" required /> <br />
+          <input type="text" placeholder="job title" name="jobTitle" ng-model="keywords.jobTitle" required />
+          <input type="text" placeholder="celebrity" name="celebrity" ng-model="keywords.celebrity" required />
+          <input type="number" placeholder="huge number" name="hugeNumber" ng-model="keywords.hugeNumber" required /><br />
+          <input type="text" placeholder="tedious task" name="tediousTask" ng-model="keywords.tediousTask" required />
+          <input type="text" placeholder="useless skill" name="uselessSkill" ng-model="keywords.uselessSkill" required />
+          <input type="text" placeholder="adjective" name="adjective" ng-model="keywords.adjective" required />
+          <hr />
+          <input type="submit" value="Generate My Mad Lib" />
+        </form>
+      </div>
+    </section>
+
+    <section id="text" class="container" ng-show="ready">
+      <p>
+        <span>{{keywords.name}}</span> was a <span>{{keywords.jobTitle}}</span> who loved technology. Although {{sheHe}} loved parts of {{herHis}} job, {{sheHe}} absolutely hated <span>{{keywords.tediousTask}}</span> and <span>{{keywords.dirtyTask}}</span>. So, <span>{{keywords.femaleName}}</span> met with {{herHis}} life mentor <span>{{keywords.celebrity}}</span> who told {{herHis}} to learn how to <span>{{keywords.uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{keywords.uselessSkill}}</span> so {{sheHe}} studied programming instead.
+      </p>
+      <p>
+        What a great decision! With {{herHis}} new skills, <span>{{keywords.femaleName}}</span> built a(n) <span>{{keywords.adjective}}</span> robot named <span>{{keywords.obnoxiousCelebrity}}</span> that not only loved <span>{{keywords.dirtyTask}}</span> but did it <span>{{keywords.hugeNumber}}</span> times faster. 
+      </p>
+      <button ng-click="reset()">Start Over</button>
+    </section>
+  </div>
+</body>
+
+</html>
+
